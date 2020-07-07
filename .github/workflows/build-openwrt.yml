@@ -23,7 +23,7 @@ on:
 #    types: started
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/qbh319/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
@@ -125,8 +125,8 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        cd openwrt/bin/targets/*/*
-        rm -rf packages
+        cd openwrt/bin/*/*/*
+#       rm -rf packages
         echo "::set-env name=FIRMWARE::$PWD"
         echo "::set-output name=status::success"
 
